@@ -1,0 +1,16 @@
+write_python_code:
+  description: >
+    Write python code for given problem '{problem}' without type hints.
+  expected_output: >
+    A python code that solves the given problem without type hints.
+  agent: junior_python_developer
+  
+
+
+review_python_code:
+  description: >
+    Review the python code written by junior_python_developer and improve code by adding comments and type hints.
+  expected_output: >
+    Python code that is reviewed and improved by adding comments and type hints.
+  agent: senior_python_developer
+  
