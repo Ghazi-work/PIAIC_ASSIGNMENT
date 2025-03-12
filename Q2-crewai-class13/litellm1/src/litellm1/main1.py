@@ -9,12 +9,12 @@ load_dotenv()
 ## In the env
 
 ## TO call a remote model use the following
-# GEMINI_API_KEY=AIzaSyC5ZvCIdp3EdCWEy03oHZCS4_DAw5GnZcI
+# GEMINI_API_KEY= API key for the model
 # MODEL=gemini/gemini-1.5-flash
 
 ## TO call a local model use the following
 #MODEL=ollama/llama3.2:latest
-#BASE_URL=http://127.0.0.1:11434
+#BASE_URL=http://127.0.0.1:11434s
 
 class LiteLlmFlow(Flow):
     @start()
