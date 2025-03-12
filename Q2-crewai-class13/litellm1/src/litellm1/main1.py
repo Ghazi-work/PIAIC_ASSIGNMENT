@@ -6,6 +6,16 @@ import os
 load_dotenv()
 
 
+## In the env
+
+## TO call a remote model use the following
+# GEMINI_API_KEY=AIzaSyC5ZvCIdp3EdCWEy03oHZCS4_DAw5GnZcI
+# MODEL=gemini/gemini-1.5-flash
+
+## TO call a local model use the following
+#MODEL=ollama/llama3.2:latest
+#BASE_URL=http://127.0.0.1:11434
+
 class LiteLlmFlow(Flow):
     @start()
     def start_function(self):
@@ -13,7 +23,7 @@ class LiteLlmFlow(Flow):
             model=os.getenv("MODEL"),
             messages=[{
             "role": "user",
-            "content": "Speak like a pirate in a funny way"
+            "content": "Write a motivational poem on my name which is Ghazi"
         }])
 
         print(output["choices"][0]["message"]["content"])
