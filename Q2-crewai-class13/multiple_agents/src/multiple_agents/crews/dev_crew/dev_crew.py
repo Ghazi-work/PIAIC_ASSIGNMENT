@@ -1,9 +1,11 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from crewai import LLM
 
-# If you want to run a snippet of code before or after the crew starts,
-# you can use the @before_kickoff and @after_kickoff decorators
-# https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
+
+## We will give different LLM to each agent
+llm1 = LLM(model="ollama/llama3.2:latest", base_url="http://127.0.0.1:11434")   ## Local LLM model
+llm2 = LLM(model="gemini/gemini-1.5-flash")
 
 
 @CrewBase
@@ -19,12 +21,14 @@ class DevCrew:
     def junior_python_developer(self) -> Agent:
         return Agent(
             config=self.agents_config["junior_python_developer"],
+            llm=llm1
         )
 
     @agent
     def senior_python_developer(self) -> Agent:
         return Agent(
             config=self.agents_config["senior_python_developer"],
+            llm=llm2
         )
 
 
